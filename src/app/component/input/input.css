@@ -1,0 +1,29 @@
+
+
+.custom-label-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.custom-title {
+    color: #344054;
+    font-size: 16px;
+}
+
+.custom-desk {
+    margin-left: 5px;
+    opacity: 0.5;
+}
+
+.custom-form-control {
+    color: #344054;
+    /* Add your other form control styles here */
+}
+
+.text-judul {
+    font-family: 'Roboto-Bold';
+}
+
+.text-des {
+    font-family: 'Roboto-Regular';
+}

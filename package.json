@@ -1,0 +1,44 @@
+{
+  "homepage": "https://cool.uruz.id/banteng",
+  "basename": "/banteng",
+  "name": "banteng",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prod": "next export"
+  },
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "autoprefixer": "10.4.15",
+    "axios": "^1.6.8",
+    "better-react-carousel": "^1.1.2",
+    "chart.js": "^4.4.0",
+    "crypto-js": "^4.1.1",
+    "eslint": "8.48.0",
+    "eslint-config-next": "13.4.19",
+    "firebase": "^9.0.1",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.4.0",
+    "moment": "^2.29.1",
+    "next": "^14.2.3",
+    "postcss": "8.4.28",
+    "qrcode.react": "^3.1.0",
+    "query-string": "^8.1.0",
+    "react": "^18.3.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-datepicker": "^4.21.0",
+    "react-dom": "^18.3.1",
+    "react-to-print": "^2.14.15",
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "tailwindcss": "3.3.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "daisyui": "^3.6.3"
+  }
+}
