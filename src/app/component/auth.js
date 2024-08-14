@@ -1,15 +1,14 @@
-'use client'
-import Image from 'next/image'
-import React from 'react'
-import { useRouter } from 'next/navigation'
-import firebase from '../../firebase';
-import { getAuth, createUserWithEmailAndPassword, RecaptchaVerifier, signInWithPhoneNumber, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, sendPasswordResetEmail, setPersistence, signInWithRedirect, inMemoryPersistence, browserSessionPersistence } from "firebase/auth";
-import { getFirestore, doc, getDocs, collection, getDoc, addDoc, setDoc, deleteDoc, updateDoc } from "firebase/firestore";
-// import axios from "axios"
-import { url, userServer } from '../../Constants.js'
-// import Toast from './component/toast'
-
-
+"use client";
+import {
+  getAuth,
+  onAuthStateChanged
+} from "firebase/auth";
+import {
+  doc,
+  getDoc,
+  getFirestore
+} from "firebase/firestore";
+import { userServer } from "../../Constants.js";
 
 export default function authCek() {
   const auth = getAuth();
@@ -19,31 +18,29 @@ export default function authCek() {
       const db = getFirestore();
       const querySnapshot = doc(db, "users", uid);
       const docSnap = await getDoc(querySnapshot);
-      let dataUse = docSnap.data()
-      if (dataUse?.id == 'TkdlFf3gDtXvgiLSwkstONUbU6H2') {
-        dataUse.tipe = 'admin'
-        dataUse.pic = user.photoURL
-        dataUse.token = user.accessToken
-      }
-      else {
-        dataUse.tipe = 'user'
-        dataUse.pic = user.photoURL
-        dataUse.token = user.accessToken
+      let dataUse = docSnap.data();
+      if (dataUse?.id == "TkdlFf3gDtXvgiLSwkstONUbU6H2") {
+        dataUse.tipe = "admin";
+        dataUse.pic = user.photoURL;
+        dataUse.token = user.accessToken;
+      } else {
+        dataUse.tipe = "user";
+        dataUse.pic = user.photoURL;
+        dataUse.token = user.accessToken;
       }
       try {
-
         let body = {
-          "from_origin": "*",
-          "userServer": userServer,
-          "userId": "admin",
-          "id": dataUse.id
-        }
+          from_origin: "*",
+          userServer: userServer,
+          userId: "admin",
+          id: dataUse.id,
+        };
         const configres = {
           headers: {
-            'Accept': "*",
+            Accept: "*",
             "Content-type": "application/json",
-            'Access-Control-Allow-Origin': '*',
-            'x-access-token': dataUse.token
+            "Access-Control-Allow-Origin": "*",
+            "x-access-token": dataUse.token,
           },
         };
 
@@ -56,15 +53,10 @@ export default function authCek() {
         //   newdata.city_id = respon.data.data[0].city_id
         // }
         // localStorage.setItem("data", JSON.stringify(dataUse))
-
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     } else {
-
     }
   });
 }
-
-
-

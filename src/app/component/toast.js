@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
-import React from "react";
 import { useRouter } from "next/navigation";
-import info from "../../../public/images/info.png";
+import React from "react";
 import Check from "../../../public/images/Check.png";
 import CloseWhite from "../../../public/images/CloseWhite.png";
+import info from "../../../public/images/info.png";
 
 export default function Toast({ modal, setToastParam }) {
   const router = useRouter();
