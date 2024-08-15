@@ -4,7 +4,7 @@ import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import "tailwindcss/tailwind.css";
 
-export default function Button({buttonName, route}) {
+export default function Button({ buttonName, route }) {
   const router = useRouter();
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
   const [isTablet, setIsTablet] = React.useState(
@@ -16,7 +16,6 @@ export default function Button({buttonName, route}) {
       const width = window.innerWidth;
       setIsMobile(width <= 768);
       setIsTablet(width > 768 && width <= 1024);
-      console.log(isMobile, isTablet);
     };
 
     window.addEventListener("resize", handleResize);
@@ -31,10 +30,10 @@ export default function Button({buttonName, route}) {
       onClick={() => {
         router.push(route);
       }}
-      className="px-14 py-2 rounded-xl font-extrabold capitalize"
+      className="px-14 py-2 rounded-xl font-extrabold uppercase text-black"
       style={{
         backgroundColor: "#A8A8A8",
-        color: "#000000",
+        marginTop: isMobile ? "2%" : 0,
       }}
     >
       {buttonName}

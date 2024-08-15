@@ -1,5 +1,6 @@
 import baiLogo from "./bai-logo.png";
 import gmail from "./gmail.png";
+import icon from "./icon.png";
 import inves from "./inves.png";
 import keunggulan1 from "./keunggulan1.png";
 import keunggulan2 from "./keunggulan2.png";
@@ -16,6 +17,7 @@ const images = {
   visi,
   wa,
   gmail,
+  icon,
 };
 
 export default images;

@@ -4,6 +4,7 @@ import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import "tailwindcss/tailwind.css";
 import Button from "../component/button";
+import Navbar from "../component/navbar";
 
 export default function Signup() {
   const router = useRouter();
@@ -11,14 +12,20 @@ export default function Signup() {
   const [isTablet, setIsTablet] = React.useState(
     window.innerWidth > 768 && window.innerWidth <= 1024
   );
-  const [forget, setForget] = React.useState(false);
+  const [data, setData] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    memberType: "",
+    profitExpectation: "",
+    riskManagement: "",
+  });
 
   React.useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       setIsMobile(width <= 768);
       setIsTablet(width > 768 && width <= 1024);
-      console.log(isMobile, isTablet);
     };
 
     window.addEventListener("resize", handleResize);
@@ -28,88 +35,104 @@ export default function Signup() {
     };
   }, []);
 
+  async function daftarAkun() {
+  }
+
   return (
     <div
-      className="relative overflow-hidden bg-cover bg-no-repeat"
+      className="relative overflow-hidden w-full"
       style={{
-        backgroundPosition: "100%",
-        paddingBottom: isMobile || isTablet ? "20%" : 0,
+        marginBottom: isMobile || isTablet ? "50%" : 0,
       }}
     >
+      <Navbar />
       <div
         style={{
           width: "auto",
-          height: "0%",
-          padding: "8%",
-          paddingLeft: isMobile ? "10%" : "20%",
-          paddingRight: isMobile ? "10%" : "20%",
+          padding: isMobile ? "2%" : "4%",
+          paddingLeft: isMobile ? "5%" : "32%",
+          paddingRight: isMobile ? "5%" : "32%",
         }}
       >
         <div className="text-center">
           <h1
-            className="text-center uppercase"
+            className="uppercase font-bold"
             style={{
-              fontWeight: "bold",
-              fontSize: isMobile ? "32px" : "40px",
+              fontSize: isMobile ? "20px" : "40px",
             }}
           >
             membership registration
           </h1>
-          <h4 className="text-center uppercase"
+          <h4
+            className="font-extralight"
             style={{
-              fontSize: isMobile ? "8px" : "16px",
-            }}>To apply for membership please complete all questions</h4>
+              fontSize: isMobile ? "15px" : "16px",
+            }}
+          >
+            To apply for membership please complete all questions
+          </h4>
         </div>
         <div
           style={{
             width: "auto",
-            height: "0%",
-            paddingLeft: isMobile ? "10%" : "30%",
-            paddingRight: isMobile ? "10%" : "30%",
-            marginTop: "3%",
+            paddingLeft: isMobile ? "10%" : "12%",
+            paddingRight: isMobile ? "10%" : "12%",
+            marginTop: isMobile ? "8%" : "4%",
           }}
         >
           <form>
             <div className="form-group">
-              <label style={{ textAlign: "left" }} for="inputName">
-                Name
-              </label>
+              <label for="inputName">Name</label>
               <input
+                className="font-semibold text-black	 w-full rounded-md py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 style={{
-                  width: "100%",
-                  minHeight: "100%",
                   backgroundColor: "#A8A8A8",
-                  color: "#000000",
                 }}
                 id="inputName"
                 type="text"
-                className="rounded-md py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                value={data.name}
+                onChange={(val) => {
+                  setData((prev) => ({
+                    ...prev,
+                    name: val.target.value,
+                  }));
+                }}
               />
             </div>
             <div className="form-group mt-3">
               <label for="inputEmail">Email</label>
               <input
+                className="font-semibold text-black	 w-full rounded-md py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                onChange={(val) => {
+                  setData((prev) => ({
+                    ...prev,
+                    email: val.target.value,
+                  }));
+                }}
                 style={{
-                  width: "100%",
                   backgroundColor: "#A8A8A8",
-                  color: "#000000",
                 }}
                 id="inputEmail"
-                className="rounded-md py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 type="text"
+                value={data.email}
               />
             </div>
             <div className="form-group mt-3">
               <label for="inputPhone1">Phone</label>
               <input
+                className="font-semibold text-black	 w-full rounded-md py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                onChange={(val) => {
+                  setData((prev) => ({
+                    ...prev,
+                    phone: val.target.value,
+                  }));
+                }}
                 style={{
-                  width: "100%",
                   backgroundColor: "#A8A8A8",
-                  color: "#000000",
                 }}
                 id="inputPhone1"
-                className="rounded-md py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 type="text"
+                value={data.phone}
               />
             </div>
             <div className="form-group mt-3">
@@ -157,11 +180,14 @@ export default function Signup() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  id="membertype1"
-                  name="membertype1"
-                  value="silver"
+                  id="profitexpectation1"
+                  name="profitexpectation1"
+                  value="low"
                 />
-                <label className="form-check-label ml-2" for="membertype1">
+                <label
+                  className="form-check-label ml-2"
+                  for="profitexpectation1"
+                >
                   Low
                 </label>
               </div>
@@ -169,11 +195,14 @@ export default function Signup() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  id="membertype2"
-                  name="membertype2"
-                  value="gold"
+                  id="profitexpectation2"
+                  name="profitexpectation2"
+                  value="medium"
                 />
-                <label className="form-check-label ml-2" for="membertype2">
+                <label
+                  className="form-check-label ml-2"
+                  for="profitexpectation2"
+                >
                   Medium
                 </label>
               </div>
@@ -181,11 +210,14 @@ export default function Signup() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  id="membertype3"
-                  name="membertype3"
-                  value="platinum"
+                  id="profitexpectation3"
+                  name="profitexpectation3"
+                  value="high"
                 />
-                <label className="form-check-label ml-2" for="membertype3">
+                <label
+                  className="form-check-label ml-2"
+                  for="profitexpectation3"
+                >
                   High
                 </label>
               </div>
@@ -196,11 +228,11 @@ export default function Signup() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  id="membertype1"
-                  name="membertype1"
-                  value="silver"
+                  id="riskmanagement1"
+                  name="riskmanagement1"
+                  value="low"
                 />
-                <label className="form-check-label ml-2" for="membertype1">
+                <label className="form-check-label ml-2" for="riskmanagement1">
                   Low
                 </label>
               </div>
@@ -208,11 +240,11 @@ export default function Signup() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  id="membertype2"
-                  name="membertype2"
-                  value="gold"
+                  id="riskmanagement2"
+                  name="riskmanagement2"
+                  value="medium"
                 />
-                <label className="form-check-label ml-2" for="membertype2">
+                <label className="form-check-label ml-2" for="riskmanagement2">
                   Medium
                 </label>
               </div>
@@ -220,17 +252,27 @@ export default function Signup() {
                 <input
                   className="form-check-input"
                   type="checkbox"
-                  id="membertype3"
-                  name="membertype3"
-                  value="platinum"
+                  id="riskmanagement3"
+                  name="riskmanagement3"
+                  value="high"
                 />
-                <label className="form-check-label ml-2" for="membertype3">
+                <label className="form-check-label ml-2" for="riskmanagement3">
                   High
                 </label>
               </div>
             </div>
-            <div className="mt-5 text-center">
-              <Button onClick={() => {}} buttonName="sign up" route="/login" />
+            <div
+              className="text-center"
+              style={{
+                marginTop: isMobile ? "8%" : "10%",
+              }}
+            >
+              <Button
+                onClick={() => {
+                  daftarAkun();
+                }}
+                buttonName="sign up"
+              />
             </div>
           </form>
         </div>

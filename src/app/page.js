@@ -19,7 +19,6 @@ export default function Home() {
       const width = window.innerWidth;
       setIsMobile(width <= 768);
       setIsTablet(width > 768 && width <= 1024);
-      console.log(isMobile, isTablet);
     };
 
     window.addEventListener("resize", handleResize);
@@ -32,72 +31,55 @@ export default function Home() {
   return (
     <div
       style={{
-        height: '100vh',
         backgroundPosition: "100%",
-        paddingBottom: "20%"
       }}
     >
       <Navbar />
       <div
         style={{
           width: "100%",
-          height: "100%",
           padding: "8%",
+          marginTop: isMobile ? "30%" : 0,
           paddingLeft: isMobile ? "10%" : "20%",
           paddingRight: isMobile ? "10%" : "20%",
         }}
       >
-        <div
-          style={{
-            width: "100%",
-            justifyContent: "center",
-            alignItems: "center",
-            textAlign: "center",
-            marginBottom: "3%",
-            fontSize: isMobile ? "20px" : "32px",
-          }}
-        >
+        <div className="justify-center items-center text-center w-full">
           <div
+            className="mx-auto"
             style={{
               width: "52%",
-              height: "10%",
-              marginLeft: "auto",
-              marginRight: "auto",
             }}
           >
             <Image
-              style={{
-                width: "100%",
-              }}
+              className="w-full"
               src={images.baiLogo}
-              alt="logo"
+              alt="Banteeng Asset Investama logo"
             />
           </div>
           <h1
-            className="uppercase"
+            className="font-bold uppercase"
             style={{
-              fontWeight: "bold",
               letterSpacing: "30px",
-              fontSize: "56px",
+              fontSize: isMobile ? "48px" : "56px",
             }}
           >
             bai
           </h1>
           <h1
+            className="font-thin uppercase"
             style={{
-              fontWeight: "lighter",
-              fontSize: "32px",
+              fontSize: isMobile ? "20px" : "32px",
             }}
-            className="uppercase"
           >
             banteeng asset investama
           </h1>
           <h1
+            className="font-semibold uppercase"
             style={{
-              fontWeight: "bold",
-              fontSize: "28px",
+              fontSize: isMobile ? "22px" : "28px",
+              marginTop: "10px",
             }}
-            className="uppercase"
           >
             profesional copy trade community
           </h1>

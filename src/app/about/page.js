@@ -22,7 +22,6 @@ export default function About() {
       const width = window.innerWidth;
       setIsMobile(width <= 768);
       setIsTablet(width > 768 && width <= 1024);
-      console.log(isMobile, isTablet);
     };
 
     window.addEventListener("resize", handleResize);
@@ -38,7 +37,7 @@ export default function About() {
         className="relative overflow-hidden bg-cover bg-no-repeat"
         style={{
           backgroundPosition: "100%",
-          paddingBottom: isMobile || isTablet ? "20%" : 0,
+          paddingBottom: isMobile || isTablet ? "7%" : 0,
         }}
       >
         <Navbar />
@@ -79,38 +78,38 @@ export default function About() {
           zIndex: 2,
         }}
       >
-        <Image
-          src={images.inves}
-          style={{ width: isMobile ? "200px" : isTablet ? "400px" : "650px" }}
-          height={40}
-          width={40}
-          alt="Picture of the author"
-          unoptimized
-        />
+        {isMobile || isTablet ? (
+          <div></div>
+        ) : (
+          <Image
+            src={images.inves}
+            style={{ width: isMobile ? "200px" : isTablet ? "400px" : "650px" }}
+            height={40}
+            width={40}
+            alt="Picture of the author"
+            unoptimized
+          />
+        )}
       </div>
       <div
+        className="w-full"
         style={{
-          width: "100%",
-          backgroundColor: isMobile || isTablet ? "#224E90" : "#D9D9D9",
+          backgroundColor: isMobile || isTablet ? "#000000" : "#000000",
           padding: "1%",
         }}
       >
         <div
+          className="w-full bg-white relative"
           style={{
-            width: "100%",
-            backgroundColor: "white",
             borderTopLeftRadius: 80,
             borderTopRightRadius: 80,
-            position: "relative",
             top: isMobile ? -30 : -80,
             zIndex: 1,
           }}
         >
           <div
+            className="w-full bg-white flex"
             style={{
-              width: "100%",
-              backgroundColor: "white",
-              display: "flex",
               flexDirection: isMobile ? "column" : "row",
               padding: "4%",
               borderTopLeftRadius: isMobile ? 50 : 80,
@@ -118,40 +117,33 @@ export default function About() {
             }}
           >
             <div
+              className="text-center justify-center items-center flex"
               style={{
                 width: isMobile ? "100%" : "50%",
-                textAlign: "center",
-                justifyContent: "center",
-                alignItems: "center",
-                display: "flex",
-                padding: "5%",
-                marginTop: isMobile ? "10%" : 0,
+                padding: isMobile ? 0 : "5%",
               }}
             >
               <Image
-                src={images.visi}
                 className="w-96 h-96"
+                style={{ borderRadius: 50 }}
+                src={images.visi}
                 height={15}
                 width={15}
                 alt="Picture of the author"
                 unoptimized
-                style={{ borderRadius: 50 }}
               />
             </div>
             <div
+              className="text-center justify-center items-center text-black"
               style={{
                 width: isMobile ? "100%" : "50%",
-                color: "black",
                 fontSize: isMobile ? "14px" : "20px",
                 paddingLeft: "4%",
                 paddingRight: "4%",
-                textAlign: "center",
-                justifyContent: "center",
-                alignItems: "center",
                 padding: "5%",
               }}
             >
-              <div style={{ marginTop: "10%" }}>
+              <div style={{ marginTop: isMobile ? 0 : "10%" }}>
                 <span className="font-semibold">
                   PT Banteng Asset Investama
                 </span>{" "}
@@ -166,33 +158,25 @@ export default function About() {
             </div>
           </div>
           <div
+            className="w-full bg-black"
             style={{
-              width: "100%",
-              backgroundColor: "#000000",
               padding: "8%",
               paddingLeft: isMobile ? "10%" : "20%",
               paddingRight: isMobile ? "10%" : "20%",
             }}
           >
             <div
+              className="font-bold justify-center items-center w-full text-center"
               style={{
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
                 marginBottom: "3%",
-                fontSize: isMobile ? "20px" : "32px",
+                fontSize: "32px",
               }}
-              className="font-bold"
             >
-              Keunggulan
+              Keunggulan <span className="uppercase">bai</span>
             </div>
             <div
+              className="w-full justify-center items-center text-center"
               style={{
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
                 marginBottom: "3%",
                 fontSize: isMobile ? "16px" : "20px",
               }}
@@ -200,24 +184,8 @@ export default function About() {
               Membantu kebutuhan seorang trader serta mempercepat dan
               mempermudah berbagai proses untuk melancarkan aktivitas trading.
             </div>
-            <div
-              style={{
-                width: "100%",
-                justifyContent: "space-between",
-                alignItems: "center",
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "row",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textAlign: "center",
-                }}
-              >
+            <div className="flex flex-row w-full justify-between items-center text-center">
+              <div className="flex flex-col items-center text-center">
                 <div style={{ marginTop: "20px" }}>
                   <Image
                     src={images.keunggulan1}
@@ -231,22 +199,17 @@ export default function About() {
                 <div
                   style={{
                     fontSize: isMobile ? "14px" : "20px",
-                    marginTop: "10px",
+                    marginTop: "20px",
                   }}
                 >
-                  Pembukaan Mudah <br />
-                  dan Praktis
+                  Pembukaan Mudah
                 </div>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textAlign: "center",
-                }}
-              >
-                <div style={{ marginTop: "20px" }}>
+              <div className="flex flex-col items-center text-center">
+                <div
+                  className="flex justify-center"
+                  style={{ marginTop: "20px" }}
+                >
                   <Image
                     src={images.keunggulan2}
                     style={{ width: isMobile ? "50%" : "100%", height: "100%" }}
@@ -265,15 +228,11 @@ export default function About() {
                   Layanan Bantuan
                 </div>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textAlign: "center",
-                }}
-              >
-                <div style={{ marginTop: "20px" }}>
+              <div className="flex flex-col items-center text-center">
+                <div
+                  className="flex justify-center"
+                  style={{ marginTop: "20px" }}
+                >
                   <Image
                     src={images.keunggulan3}
                     style={{ width: isMobile ? "50%" : "100%", height: "100%" }}
@@ -296,49 +255,40 @@ export default function About() {
           </div>
 
           <div
+            className="w-full bg-white"
             style={{
-              width: "100%",
-              backgroundColor: "white",
               padding: "4%",
               paddingLeft: isMobile ? "10%" : "20%",
               paddingRight: isMobile ? "10%" : "20%",
             }}
           >
             <div
+              className="font-bold w-full justify-center items-center text-center text-black"
               style={{
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
                 marginBottom: "3%",
                 fontSize: "32px",
-                color: "#000000",
               }}
-              className="font-bold"
             >
               Kegiatan <span className="uppercase">bai</span>
             </div>
-            <div
-              style={{
-                width: "100%",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center",
-                color: "black",
-              }}
-            ></div>
-            <Carousel cols={isTablet ? 1 : 5} rows={1} gap={10} loop>
+            <div className="w-full justify-center items-center text-center text-black"></div>
+            <Carousel
+              cols={isTablet ? 2 : 5}
+              rows={1}
+              gap={isMobile || isTablet ? 34 : 10}
+              loop
+            >
               <Carousel.Item>
                 <div
                   style={{
-                    display: "flex",
+                    display: isMobile || isTablet ? "" : "flex",
                     flexDirection: isMobile || isTablet ? "row" : "column",
                     alignItems: "center",
                   }}
                 >
                   <div style={{ marginTop: "20px" }}>
                     <Image
-                      src={images.inves}
+                      src={images.visi}
                       style={{ width: "100%" }}
                       height={15}
                       width={15}
@@ -347,11 +297,10 @@ export default function About() {
                     />
                   </div>
                   <div
+                    className="text-black text-center"
                     style={{
                       fontSize: isMobile ? "16px" : "20px",
                       marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
                     }}
                   >
                     Kegiatan A
@@ -361,14 +310,14 @@ export default function About() {
               <Carousel.Item>
                 <div
                   style={{
-                    display: "flex",
+                    display: isMobile || isTablet ? "" : "flex",
                     flexDirection: isMobile || isTablet ? "row" : "column",
                     alignItems: "center",
                   }}
                 >
                   <div style={{ marginTop: "20px" }}>
                     <Image
-                      src={images.inves}
+                      src={images.visi}
                       style={{ width: "100%" }}
                       height={15}
                       width={15}
@@ -377,251 +326,10 @@ export default function About() {
                     />
                   </div>
                   <div
+                    className="text-black text-center"
                     style={{
                       fontSize: isMobile ? "16px" : "20px",
                       marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
-                    }}
-                  >
-                    Kegiatan A
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: isMobile || isTablet ? "row" : "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ marginTop: "20px" }}>
-                    <Image
-                      src={images.inves}
-                      style={{ width: "100%" }}
-                      height={15}
-                      width={15}
-                      alt="Picture of the author"
-                      unoptimized
-                    />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: isMobile ? "16px" : "20px",
-                      marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
-                    }}
-                  >
-                    Kegiatan A
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: isMobile || isTablet ? "row" : "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ marginTop: "20px" }}>
-                    <Image
-                      src={images.inves}
-                      style={{ width: "100%" }}
-                      height={15}
-                      width={15}
-                      alt="Picture of the author"
-                      unoptimized
-                    />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: isMobile ? "16px" : "20px",
-                      marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
-                    }}
-                  >
-                    Kegiatan A
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: isMobile || isTablet ? "row" : "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ marginTop: "20px" }}>
-                    <Image
-                      src={images.inves}
-                      style={{ width: "100%" }}
-                      height={15}
-                      width={15}
-                      alt="Picture of the author"
-                      unoptimized
-                    />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: isMobile ? "16px" : "20px",
-                      marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
-                    }}
-                  >
-                    Kegiatan A
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: isMobile || isTablet ? "row" : "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ marginTop: "20px" }}>
-                    <Image
-                      src={images.inves}
-                      style={{ width: "100%" }}
-                      height={15}
-                      width={15}
-                      alt="Picture of the author"
-                      unoptimized
-                    />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: isMobile ? "16px" : "20px",
-                      marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
-                    }}
-                  >
-                    Kegiatan A
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: isMobile || isTablet ? "row" : "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ marginTop: "20px" }}>
-                    <Image
-                      src={images.inves}
-                      style={{ width: "100%" }}
-                      height={15}
-                      width={15}
-                      alt="Picture of the author"
-                      unoptimized
-                    />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: isMobile ? "16px" : "20px",
-                      marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
-                    }}
-                  >
-                    Kegiatan A
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: isMobile || isTablet ? "row" : "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ marginTop: "20px" }}>
-                    <Image
-                      src={images.inves}
-                      style={{ width: "100%" }}
-                      height={15}
-                      width={15}
-                      alt="Picture of the author"
-                      unoptimized
-                    />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: isMobile ? "16px" : "20px",
-                      marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
-                    }}
-                  >
-                    Kegiatan A
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: isMobile || isTablet ? "row" : "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ marginTop: "20px" }}>
-                    <Image
-                      src={images.inves}
-                      style={{ width: "100%" }}
-                      height={15}
-                      width={15}
-                      alt="Picture of the author"
-                      unoptimized
-                    />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: isMobile ? "16px" : "20px",
-                      marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
-                    }}
-                  >
-                    Kegiatan A
-                  </div>
-                </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: isMobile || isTablet ? "row" : "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <div style={{ marginTop: "20px" }}>
-                    <Image
-                      src={images.inves}
-                      style={{ width: "100%" }}
-                      height={15}
-                      width={15}
-                      alt="Picture of the author"
-                      unoptimized
-                    />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: isMobile ? "16px" : "20px",
-                      marginTop: "10px",
-                      color: "black",
-                      textAlign: "center",
                     }}
                   >
                     Kegiatan A

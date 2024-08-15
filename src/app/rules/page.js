@@ -18,7 +18,6 @@ export default function Rules() {
       const width = window.innerWidth;
       setIsMobile(width <= 768);
       setIsTablet(width > 768 && width <= 1024);
-      console.log(isMobile, isTablet);
     };
 
     window.addEventListener("resize", handleResize);
@@ -31,25 +30,22 @@ export default function Rules() {
   return (
     <div
       style={{
-        height: "100vh",
         backgroundPosition: "100%",
-        paddingBottom: "20%",
+        paddingBottom: isMobile || isTablet ? "7%" : 0,
       }}
     >
       <Navbar />
       <div
         style={{
           width: "auto",
-          height: "0%",
-          padding: "8%",
+          padding: isMobile ? "8%" : "4%",
           paddingLeft: isMobile ? "10%" : "20%",
           paddingRight: isMobile ? "10%" : "20%",
         }}
       >
         <div
-          className="text-center uppercase"
+          className="text-center uppercase font-bold"
           style={{
-            fontWeight: "bold",
             fontSize: isMobile ? "32px" : "40px",
           }}
         >
@@ -58,17 +54,16 @@ export default function Rules() {
         <div
           style={{
             width: "auto",
-            height: "0%",
             paddingLeft: isMobile ? "10%" : "20%",
             paddingRight: isMobile ? "10%" : "20%",
-            marginTop: "3%",
+            marginTop: isMobile ? "5%" : "2%",
           }}
         >
           <div className="pb-2">
             <h2
-              className="font-bold"
               style={{
-                fontSize: "24px",
+                fontWeight: "bold",
+                fontSize: isMobile ? "20px" : "24px",
               }}
             >
               Check-in and Check-out
@@ -81,9 +76,9 @@ export default function Rules() {
 
           <div className="mt-6">
             <h2
-              className="font-bold"
               style={{
-                fontSize: "24px",
+                fontWeight: "bold",
+                fontSize: isMobile ? "20px" : "24px",
               }}
             >
               Quiet Hours
@@ -96,9 +91,9 @@ export default function Rules() {
 
           <div className="mt-6">
             <h2
-              className="font-bold"
               style={{
-                fontSize: "24px",
+                fontWeight: "bold",
+                fontSize: isMobile ? "20px" : "24px",
               }}
             >
               No Smoking
@@ -111,9 +106,9 @@ export default function Rules() {
 
           <div className="mt-6">
             <h2
-              className="font-bold"
               style={{
-                fontSize: "24px",
+                fontWeight: "bold",
+                fontSize: isMobile ? "20px" : "24px",
               }}
             >
               Cleanliness and Order
