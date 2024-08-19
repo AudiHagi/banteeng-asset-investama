@@ -61,6 +61,7 @@ export default function Navbar() {
                   >
                     <Link
                       href="/"
+                      className="hover:underline"
                       style={{
                         color: "black",
                         textDecoration: pathname == "/" ? "underline" : "none",
@@ -78,6 +79,7 @@ export default function Navbar() {
                   >
                     <Link
                       href="/about"
+                      className="hover:underline"
                       style={{
                         color: "black",
                         textDecoration:
@@ -96,6 +98,7 @@ export default function Navbar() {
                   >
                     <Link
                       href="/rules"
+                      className="hover:underline"
                       style={{
                         color: "black",
                         textDecoration:
@@ -112,7 +115,12 @@ export default function Navbar() {
                       backgroundColor: "#A8A8A8",
                     }}
                   >
-                    <Link href="https://www.triveinvest.co.id/">Broker</Link>
+                    <Link
+                      href="https://www.triveinvest.co.id/"
+                      className="hover:underline"
+                    >
+                      Broker
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -129,6 +137,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/"
+                  className="hover:underline"
                   style={{
                     color: "white",
                     textDecoration: pathname == "/" ? "underline" : "none",
@@ -141,6 +150,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/about"
+                  className="hover:underline"
                   style={{
                     color: "white",
                     textDecoration:
@@ -154,6 +164,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/rules"
+                  className="hover:underline"
                   style={{
                     color: "white",
                     textDecoration:
@@ -166,7 +177,22 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
+                  href="/ourservice"
+                  className="hover:underline"
+                  style={{
+                    color: "white",
+                    textDecoration:
+                      pathname == "/ourservice/" ? "underline" : "none",
+                    textDecorationThickness: "10%",
+                  }}
+                >
+                  <p className="font-extrabold">Our Service</p>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="https://www.triveinvest.co.id/"
+                  className="hover:underline"
                   style={{
                     color: "white",
                     textDecoration:
@@ -194,7 +220,7 @@ export default function Navbar() {
             onClick={() => {
               router.push("/login");
             }}
-            className="py-2 rounded-xl font-extrabold uppercase text-black"
+            className="py-2 rounded-xl font-extrabold uppercase text-black hover:bg-white"
             style={{
               backgroundColor: "#A8A8A8",
               marginTop: isMobile ? "20%" : 0,
@@ -203,21 +229,21 @@ export default function Navbar() {
               fontSize: isMobile ? "70%" : "100%",
             }}
           >
-            Login
+            login
           </button>
           <button
             onClick={() => {
               router.push("/signup");
             }}
-            className="py-2 rounded-xl font-extrabold uppercase text-black"
+            className="py-2 rounded-xl font-extrabold uppercase text-black hover:bg-white"
             style={{
               backgroundColor: "#A8A8A8",
-              paddingLeft: isMobile ? "30%" : "10%",
-              paddingRight: isMobile ? "30%" : "10%",
+              paddingLeft: isMobile ? "25%" : "5%",
+              paddingRight: isMobile ? "25%" : "5%",
               fontSize: isMobile ? "70%" : "100%",
             }}
           >
-            Signup
+            register
           </button>
         </div>
       </div>

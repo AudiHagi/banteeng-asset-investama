@@ -59,18 +59,46 @@ export default function Rules() {
             marginTop: isMobile ? "5%" : "2%",
           }}
         >
-          <div className="pb-2">
+          <table class="table-fixed w-full">
+            <thead className="uppercase bg-gray-300 text-black font-black	">
+              <tr>
+                <th>Product</th>
+                <th>Minimal Deposit</th>
+                <th>Membership Fee</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white text-black text-center font-semibold	">
+              <tr>
+                <td>Silver</td>
+                <td>100 Million</td>
+                <td>30%</td>
+              </tr>
+              <tr>
+                <td>Gold</td>
+                <td>500 Million</td>
+                <td>25%</td>
+              </tr>
+              <tr>
+                <td>Platinum</td>
+                <td>1.000 Million</td>
+                <td>20%</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div className="mt-6">
             <h2
               style={{
                 fontWeight: "bold",
                 fontSize: isMobile ? "20px" : "24px",
               }}
             >
-              Check-in and Check-out
+              Trading Lot
             </h2>
             <h4 className="rules-detail mt-1">
-              Follow the specified check-in and check-out times to facilitate a
-              smooth transition for everyone.
+              The trading lot is determined based on the member's deposit, with
+              a ratio of 0.1 lot per 100 million of deposit. This ensures that
+              the trading volume aligns with the member's financial capacity.
             </h4>
           </div>
 
@@ -81,11 +109,14 @@ export default function Rules() {
                 fontSize: isMobile ? "20px" : "24px",
               }}
             >
-              Quiet Hours
+              Membership Fee
             </h2>
             <h4 className="rules-detail mt-1">
-              From 10:00 PM to 7:00 AM, we appreciate your cooperation in
-              maintaining a low noise level to ensure everyone’s rest.
+              This fee covers the use of trading algorithms provided by Banteeng
+              Asset Investama. For the first cycle, this fee is waived.
+              Subsequent membership fees are deducted from the member’s
+              withdrawn profits, with the amount depending on the chosen product
+              type.
             </h4>
           </div>
 
@@ -96,11 +127,12 @@ export default function Rules() {
                 fontSize: isMobile ? "20px" : "24px",
               }}
             >
-              No Smoking
+              Profit Expectation
             </h2>
             <h4 className="rules-detail mt-1">
-              Our property is a “non-smoking” zone. Please respect this policy
-              in common areas and rooms.
+              This represents the anticipated return a member aims to achieve
+              from trading with the provided algorithms. Trading will cease once
+              the profit reaches the member's specified target.
             </h4>
           </div>
 
@@ -111,12 +143,12 @@ export default function Rules() {
                 fontSize: isMobile ? "20px" : "24px",
               }}
             >
-              Cleanliness and Order
+              Risk Management
             </h2>
             <h4 className="rules-detail mt-1">
-              Contribute to keeping common areas neat and clean. If you use the
-              kitchen or other shared spaces, remember to clean up after
-              yourself.
+              Our risk management framework is designed to safeguard member
+              capital from significant losses by implementing risk limits and
+              effective mitigation strategies throughout the trading process.
             </h4>
           </div>
         </div>

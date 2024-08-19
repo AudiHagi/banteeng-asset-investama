@@ -3,13 +3,15 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import "tailwindcss/tailwind.css";
+import Navbar from "../component/navbar";
 
-export default function Button({ buttonName, route }) {
+export default function OurService() {
   const router = useRouter();
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
   const [isTablet, setIsTablet] = React.useState(
     window.innerWidth > 768 && window.innerWidth <= 1024
   );
+  const [forget, setForget] = React.useState(false);
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -26,17 +28,30 @@ export default function Button({ buttonName, route }) {
   }, []);
 
   return (
-    <button
-      onClick={() => {
-        router.push(route);
-      }}
-      className="px-14 py-2 rounded-xl font-extrabold uppercase text-black hover:bg-white"
+    <div
       style={{
-        backgroundColor: "#A8A8A8",
-        marginTop: isMobile ? "2%" : 0,
+        backgroundPosition: "100%",
+        paddingBottom: isMobile || isTablet ? "7%" : 0,
       }}
     >
-      {buttonName}
-    </button>
+      <Navbar />
+      <div
+        style={{
+          width: "auto",
+          padding: isMobile ? "8%" : "4%",
+          paddingLeft: isMobile ? "10%" : "20%",
+          paddingRight: isMobile ? "10%" : "20%",
+        }}
+      >
+        <div
+          className="text-center uppercase font-bold"
+          style={{
+            fontSize: isMobile ? "32px" : "40px",
+          }}
+        >
+          <h1>our service</h1>
+        </div>
+      </div>
+    </div>
   );
 }
